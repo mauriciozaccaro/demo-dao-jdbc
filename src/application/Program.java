@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import bd.DB;
 import bd.DbException;
 import bd.DbIntegrityException;
+import model.entities.Department;
 
 public class Program {
 
@@ -19,27 +20,10 @@ public class Program {
 		Statement st = null;
 		
 		try {
-			conn = DB.getConnection();
-			conn.setAutoCommit(false);// Espera uma confirmação do programador, tipo enviar o COMMIT
-			st = conn.createStatement();
 			
-			int rows1 = st.executeUpdate("UPDATE seller SET BaseSalary = 2590.0 "
-					+ "WHERE DepartmentId = 1");
+			Department obj = new Department(1, "Books");
+			System.out.println(obj);
 			
-			/*int x = 1;
-			if(x < 2) {
-				throw new SQLException("Erro de teste falso");
-			}*/
-
-			int rows2 = st.executeUpdate("UPDATE seller SET BaseSalary = 3090.0 "
-					+ "WHERE DepartmentId = 4");
-			
-			
-			conn.commit(); // colocando o setAutoComit(false) e deixando o "comit()" aqui ele só vai comitar 
-			// se tudo chegar até aqui, caso contrário não comita nada
-			
-			System.out.println("Rows1: " + rows1);
-			System.out.println("Rows2: " + rows2);
 			
 		}
 		catch(SQLException e) {
