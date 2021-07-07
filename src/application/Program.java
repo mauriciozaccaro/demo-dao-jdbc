@@ -35,7 +35,7 @@ public class Program {
 		}
 
 		System.out.println("\n=== TEST 4: seller insert =====");
-		Seller newSeller = new Seller(1, "Gohan Zaccaro", "greg@gmail.com", new Date(), 4000.0, department);
+		Seller newSeller = new Seller(1, "Ronaldoooo", "greg@gmail.com", new Date(), 4000.0, department);
 		/* Durante a aula o professor deixa o argunto do "Id" como "nulo" e o Eclipse aceita normalmente, 
 		   Não sei porque motivo aqui no meu Eclipse sou obrigado a informar um valor inteiro, pois o 
 		   compilador gera erro dizendo que o argumento não pode ser nulo. Estou deixando o numero "1"...
@@ -43,6 +43,14 @@ public class Program {
 		*/
 		sellerDao.insert(newSeller);
 		System.out.println("Inserted! New id = " + newSeller.getId());
+		
+
+		System.out.println("\n=== TEST 5: seller UPDATE =====");
+		seller = sellerDao.findById(1);
+		seller.setName("Dinossauro Rex");
+		
+		sellerDao.update(seller);
+		System.out.println("UPDATE Complet!");
 
 	}
 
